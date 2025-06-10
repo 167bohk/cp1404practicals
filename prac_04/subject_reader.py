@@ -12,7 +12,8 @@ def main():
 
 
 def load_data():
-    """Read data from file formatted like: subject,lecturer,number of students."""
+    """Read data from file and return formatted nested list contain elements like: [subject, lecturer, number of students]."""
+    lines_of_parts = []
     input_file = open(FILENAME)
     for line in input_file:
         print(line)  # See what a line looks like
@@ -23,7 +24,11 @@ def load_data():
         parts[2] = int(parts[2])  # Make the number an integer (ignore PyCharm's warning)
         print(parts)  # See if that worked
         print("----------")
+        lines_of_parts.append(parts)
     input_file.close()
+    return lines_of_parts
+
+
 
 
 main()
