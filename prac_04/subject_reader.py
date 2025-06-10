@@ -32,7 +32,10 @@ def load_data():
 
 def display_subject_details(lines_of_parts):
     """Display subject details like: CP1401 is taught by Ada Lovelace and has 192 students"""
-    [print(f"{line_of_parts[0]} is taught by {line_of_parts[1]} and has {line_of_parts[2]} students") for line_of_parts in lines_of_parts]
+    # [print(f"{line_of_parts[0]} is taught by {line_of_parts[1]} and has {line_of_parts[2]} students") for line_of_parts in lines_of_parts]
+    for line_of_parts in lines_of_parts:
+        subject, lecturer, number_of_students = line_of_parts
+        print(f"{subject} is taught by {lecturer} and has {number_of_students} students")
 
 
 main()
