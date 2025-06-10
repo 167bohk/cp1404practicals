@@ -64,3 +64,8 @@ from operator import itemgetter
 print(type(9) in (float, int))
 print(True == 0)
 print(isinstance(False, int))
+s = []
+s.append(("aaaa", 234))
+s.append(("abba", 2094))
+print(s)
+print(type(s[0]))
