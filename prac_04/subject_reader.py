@@ -7,9 +7,11 @@ FILENAME = "subject_data.txt"
 
 
 def main():
+    """Read data from file and display subject details"""
     data = load_data()
     print(data)
-
+    print("----------")
+    display_subject_details(data)
 
 def load_data():
     """Read data from file and return formatted nested list contain elements like: [subject, lecturer, number of students]."""
@@ -28,7 +30,9 @@ def load_data():
     input_file.close()
     return lines_of_parts
 
-
+def display_subject_details(lines_of_parts):
+    """Display subject details like: CP1401 is taught by Ada Lovelace and has 192 students"""
+    [print(f"{line_of_parts[0]} is taught by {line_of_parts[1]} and has {line_of_parts[2]} students") for line_of_parts in lines_of_parts]
 
 
 main()
