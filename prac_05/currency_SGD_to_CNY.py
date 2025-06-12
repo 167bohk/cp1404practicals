@@ -11,4 +11,4 @@ print(current_exchange_rate)
 if current_exchange_rate < THRESHOLD:
     print("Time to buy some SGD :)")
 else:
-    print("To expensive :(")
+    print("Too expensive :(")
