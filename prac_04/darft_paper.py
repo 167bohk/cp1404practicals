@@ -69,3 +69,6 @@ s.append(("aaaa", 234))
 s.append(("abba", 2094))
 print(s)
 print(type(s[0]))
+words = ["aye", "bee", "sea", "bee"]
+words.remove("bee")
+print(words.pop())
