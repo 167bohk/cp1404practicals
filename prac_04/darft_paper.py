@@ -62,7 +62,7 @@ from operator import itemgetter
 # for line in string_messages:
 #     print(line)
 print(type(9) in (float, int))
-print(True == 0)
+print(True == 1)
 print(isinstance(False, int))
 s = []
 s.append(("aaaa", 234))
