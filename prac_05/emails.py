@@ -1,9 +1,10 @@
 """
 emails
 Estimate: 25 minutes
-Actual:    minutes
+Actual:   28 minutes
 """
 def main():
+    """Get email and name then print them"""
     email_to_name = {}
     email = input("Email: ")
     while email != "":
@@ -15,8 +16,10 @@ def main():
         email = input("Email: ")
     for email_key, name_value in email_to_name.items():
         print(f"{name_value} ({email_key})")
-def extract_name():
-    pass
+
+def extract_name(email):
+    """Extract name from email"""
+    return email[:email.index("@")].replace(".", " ").title()
 
 
 
