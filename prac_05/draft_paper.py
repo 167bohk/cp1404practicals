@@ -24,6 +24,7 @@
 # print(type(name_to_age.keys()))
 
 from operator import itemgetter
+
 data = {'Derek': 7, 'Xavier': 80, 'Bob': 612, 'Chantanelle': 9}
 name_space = max(len(key) for key in data.keys())
 age_space = max(len(str(value)) for value in data.values())

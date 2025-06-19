@@ -4,7 +4,7 @@ Estimate: 25 minutes
 Actual:   28 minutes
 """
 def main():
-    """Get email and name then print them"""
+    """Get email and name then print them."""
     email_to_name = {}
     email = input("Email: ")
     while email != "":
@@ -18,7 +18,7 @@ def main():
         print(f"{name_value} ({email_key})")
 
 def extract_name(email):
-    """Extract name from email"""
+    """Extract name from email."""
     return email[:email.index("@")].replace(".", " ").title()
 
 
