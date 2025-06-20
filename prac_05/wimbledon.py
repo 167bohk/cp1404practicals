@@ -17,7 +17,7 @@ def display_champions_and_countries(champion_countries, champion_to_win):
     for champion, win in champion_to_win.items():
         print(champion, win)
     print()
-    print(f"These 12 countries have won Wimbledon: \n{" ".join(champion_countries)}")
+    print(f"These {len(champion_countries)} countries have won Wimbledon: \n{" ".join(champion_countries)}")
 
 
 def extract_data(lines):
