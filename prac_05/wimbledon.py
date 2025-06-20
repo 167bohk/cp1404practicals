@@ -22,7 +22,7 @@ def display_champions_and_countries(champion_countries, champion_to_win):
 
 def extract_data(lines):
     """Extract a dictionary that maps from champion name to wins and a set of champion's countries."""
-    champion_countries = set({})
+    champion_countries = set()
     champion_to_win = {}
     for line in lines:
         line = line.strip().split(",")
