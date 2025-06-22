@@ -1,6 +1,6 @@
 import requests
 
-THRESHOLD = 5.5
+THRESHOLD = 5.55
 
 URL = 'https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/sgd.json'
 response = requests.get(URL)

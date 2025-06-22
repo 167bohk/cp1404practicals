@@ -55,20 +55,20 @@ from operator import itemgetter
 #
 # main()
 
-# data = [['Derek', 7], ['Xavier', 80], ['Bob', 612], ['Chantanelle', 9]]
-# max_length_0 = max([len(pair[0]) for pair in data])
-# max_length_1 =max([len(str(pair[1])) for pair in data])
-# string_messages = [f"{pair[0]:{max_length_0}} = {pair[1]:{max_length_1}}" for pair in sorted(data, key=itemgetter(1), reverse=True)]
-# for line in string_messages:
-#     print(line)
-print(type(9) in (float, int))
-print(True == 1)
-print(isinstance(False, int))
-s = []
-s.append(("aaaa", 234))
-s.append(("abba", 2094))
-print(s)
-print(type(s[0]))
-words = ["aye", "bee", "sea", "bee"]
-words.remove("bee")
-print(words.pop())
+data = [['Derek', 7], ['Xavier', 80], ['Bob', 612], ['Chantanelle', 9]]
+max_length_0 = max([len(pair[0]) for pair in data])
+max_length_1 =max([len(str(pair[1])) for pair in data])
+string_messages = [f"{pair[0]:{max_length_0}} = {pair[1]:{max_length_1}}" for pair in sorted(data, key=itemgetter(1), reverse=True)]
+for line in string_messages:
+    print(line)
+# print(type(9) in (float, int))
+# print(True == 1)
+# print(isinstance(False, int))
+# s = []
+# s.append(("aaaa", 234))
+# s.append(("abba", 2094))
+# print(s)
+# print(type(s[0]))
+# words = ["aye", "bee", "sea", "bee"]
+# words.remove("bee")
+# print(words.pop())
