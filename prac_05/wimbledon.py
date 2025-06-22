@@ -3,10 +3,13 @@ wimbledon
 Estimate: 35 minutes
 Actual:   40 minutes
 """
+INDEX_FOR_COUNTRY = 1
+INDEX_FOR_CHAMPION_NAME = 2
 FILENAME = "wimbledon.csv"
 def main():
     """Extract champion data from FILENAME then display them."""
     lines = read_file(FILENAME)
+    print(lines)
     champion_countries, champion_to_win = extract_data(lines)
     display_champions_and_countries(champion_countries, champion_to_win)
 
@@ -26,8 +29,8 @@ def extract_data(lines):
     champion_to_win = {}
     for line in lines:
         line = line.strip().split(",")
-        champion_countries.add(line[1])
-        champion_to_win[line[2]] = champion_to_win.get(line[2], 0) + 1
+        champion_countries.add(line[INDEX_FOR_COUNTRY])
+        champion_to_win[line[INDEX_FOR_CHAMPION_NAME]] = champion_to_win.get(line[INDEX_FOR_CHAMPION_NAME], 0) + 1
     champion_countries = sorted(list(champion_countries))
     return champion_countries, champion_to_win
 

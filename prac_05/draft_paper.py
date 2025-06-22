@@ -23,14 +23,14 @@
 #     print(f"{name:{name_space}} - {age:{age_space}}")
 # print(type(name_to_age.keys()))
 
-from operator import itemgetter
-
-data = {'Derek': 7, 'Xavier': 80, 'Bob': 612, 'Chantanelle': 9}
-name_space = max(len(key) for key in data.keys())
-age_space = max(len(str(value)) for value in data.values())
-for key, value in sorted(data.items(), key=itemgetter(1), reverse=True):
-    print(f"{key:{name_space}} = {value:{age_space}}")
-print(type(data.items()))
+# from operator import itemgetter
+#
+# data = {'Derek': 7, 'Xavier': 80, 'Bob': 612, 'Chantanelle': 9}
+# name_space = max(len(key) for key in data.keys())
+# age_space = max(len(str(value)) for value in data.values())
+# for key, value in sorted(data.items(), key=itemgetter(1), reverse=True):
+#     print(f"{key:{name_space}} = {value:{age_space}}")
+# print(type(data.items()))
 
 
 # def main():
@@ -45,3 +45,4 @@ print(type(data.items()))
 #     # return  string_to_length
 #     return {string: len(string) for string in list_to_convert}
 # main()
+

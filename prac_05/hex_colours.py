@@ -2,11 +2,11 @@ COLOUR_TO_CODE = {'bakermillerpink': '#ff91af', 'aqua': '#00ffff', 'absolutezero
                   'bananayellow': '#ffe135', 'dartmouthgreen': '#00703c', 'darklavender': '#734f96',
                   'crimson': '#dc143c', 'coralpink': '#f88379', 'darkolivegreen1': '#caff70'}
 
-input_colour_name = input("Enter colour name: ").lower()
-while input_colour_name != "":
+colour_name_searched = input("Enter colour name: ").lower()
+while colour_name_searched != "":
     try:
-        print(COLOUR_TO_CODE[input_colour_name])
+        print(COLOUR_TO_CODE[colour_name_searched])
     except KeyError:
         print("Invalid colour name")
-    input_colour_name = input("Enter colour name: ").lower()
+    colour_name_searched = input("Enter colour name: ").lower()
 print("Farewell")
