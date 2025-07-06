@@ -3,7 +3,13 @@ Guitar
 Estimate: 30 minutes
 Actual:   56 minutes
 """
+
+
 class Guitar:
+    """Represent a Guitar object."""
+
+    VINTAGE_THRESHOLD = 50
+
     def __init__(self, name="", year=0, cost=0):
         """Initialize a Guitar instance."""
         self.name = name
@@ -20,4 +26,4 @@ class Guitar:
 
     def is_vintage(self, current_year):
         """Determine whether a Guitar is vintage."""
-        return self.get_age(current_year) >= 50
+        return self.get_age(current_year) >= Guitar.VINTAGE_THRESHOLD
