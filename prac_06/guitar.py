@@ -4,7 +4,7 @@ Estimate: 30 minutes
 Actual:    minutes
 """
 class Guitar:
-    def __init__(self, name, year, cost):
+    def __init__(self, name="", year=0, cost=0):
         """Initialize a Guitar instance."""
         self.name = name
         self.year = year
@@ -13,3 +13,11 @@ class Guitar:
     def __str__(self):
         """Convert a Guitar object into a string."""
         return f"{self.name} ({self.year}) : ${self.cost:,}"
+
+    def get_age(self, current_year):
+        """Returns how old the guitar is in years"""
+        return current_year - self.year
+
+    def is_vintage(self, current_year):
+        """Determine whether a Guitar is vintage."""
+        return self.get_age(current_year) >= 50
