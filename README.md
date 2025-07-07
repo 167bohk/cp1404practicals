@@ -5,4 +5,5 @@
 - I learned that main() should only contain bone structures, not details.
 
 [Programming Patterns page](https://github.com/CP1404/Starter/wiki/Programming-Patterns/ "Title")
+
 [CP1404 Practicals instructions repo](https://github.com/CP1404/Practicals/ "Title")
