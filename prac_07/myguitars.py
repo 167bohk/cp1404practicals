@@ -10,7 +10,7 @@ from prac_07.guitar import Guitar
 
 FILENAME = "guitars.csv"
 def main():
-    """"""
+    """Read a CSV file, add new Guitars, sort Guitars, display Guitars, write Guitars to a file."""
     guitars = read_file(FILENAME)
     guitars.sort()
     for guitar in guitars:
