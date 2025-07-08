@@ -33,11 +33,14 @@ def main():
         elif choice == "F":
             filter_projects(projects)
         elif choice == "A":
-            pass
+            print("Let's add a new project")
+            name = input("Name: ")
+            start_date = get_valid_date_object("Start date (dd/mm/yy): ")
+            priority = get_valid_integer("Priority: ", 0, 9999999999) # upper limit can be any number big enough.
+            cost = get_valid_float("Cost estimate: $" , 0, 9999999999) # upper limit can be any number big enough.
+            percentage = get_valid_integer("Percent complete: ", 0, 100)
         elif choice == "U":
             update_project(projects)
-
-
         else:
             print("Invalid choice!")
         print(MENU)
@@ -151,6 +154,7 @@ def write_file(filename, projects):
             print(line, file=out_file)
     print(f"Saved {len(projects)} projects to {filename}")
 
+
 def get_valid_date_object(prompt):
     """Get a valid date object."""
     is_valid_date_string = False
@@ -163,7 +167,8 @@ def get_valid_date_object(prompt):
             print("Invalid date!")
     return date
 
-def get_valid_integer(input_prompt, lower_limit, upper_limit, can_be_empty = False):
+
+def get_valid_integer(input_prompt, lower_limit, upper_limit, can_be_empty=False):
     """Get a valid integer."""
     is_valid_number = False
     while not is_valid_number:
@@ -181,4 +186,21 @@ def get_valid_integer(input_prompt, lower_limit, upper_limit, can_be_empty = Fal
             print("Invalid input; enter a valid number")
     return integer
 
+def get_valid_float(input_prompt, lower_limit, upper_limit, can_be_empty=False):
+    """Get a valid float."""
+    is_valid_number = False
+    while not is_valid_number:
+        user_input = input(input_prompt).strip()
+        if can_be_empty:
+            if user_input == "":
+                return user_input
+        try:
+            input_float = float(user_input)
+            if input_float >= lower_limit and input_float <= upper_limit:
+                is_valid_number = True
+            else:
+                print(f"Number out of range.")
+        except ValueError:
+            print("Invalid input; enter a valid number")
+    return input_float
 main()
