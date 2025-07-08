@@ -1,7 +1,7 @@
 """
 Project Management
 Estimate: 2 hours
-Actual:
+Actual: 4 hours
 """
 import datetime
 from operator import attrgetter
@@ -33,12 +33,7 @@ def main():
         elif choice == "F":
             filter_projects(projects)
         elif choice == "A":
-            print("Let's add a new project")
-            name = input("Name: ")
-            start_date = get_valid_date_object("Start date (dd/mm/yy): ")
-            priority = get_valid_integer("Priority: ", 0, 9999999999) # upper limit can be any number big enough.
-            cost = get_valid_float("Cost estimate: $" , 0, 9999999999) # upper limit can be any number big enough.
-            percentage = get_valid_integer("Percent complete: ", 0, 100)
+            add_project(projects)
         elif choice == "U":
             update_project(projects)
         else:
@@ -49,6 +44,18 @@ def main():
     if saving_choice == "YES":
         write_file(FILENAME, projects)
     print("Thank you for using custom-built project management software.")
+
+
+def add_project(projects):
+    """Add a new project to projects."""
+    print("Let's add a new project")
+    name = input("Name: ")
+    start_date = get_valid_date_object("Start date (dd/mm/yy): ")
+    priority = get_valid_integer("Priority: ", 0, 9999999999)  # upper limit can be any number big enough.
+    cost = get_valid_float("Cost estimate: $", 0, 9999999999)  # upper limit can be any number big enough.
+    percentage = get_valid_integer("Percent complete: ", 0, 100)
+    new_project = Project(name, start_date, priority, cost, percentage)
+    projects.append(new_project)
 
 
 def update_project(projects):
@@ -148,7 +155,7 @@ def write_file(filename, projects):
     with open(filename, "w") as out_file:
         print("Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage", file=out_file)
         for project in projects:
-            pieces = [project.name, datetime.date.strftime(project.strat_date, "%d/%m/%Y"), str(project.priority),
+            pieces = [project.name, datetime.date.strftime(project.start_date, "%d/%m/%Y"), str(project.priority),
                       str(project.cost_estimate), str(project.completion_percentage)]
             line = "\t".join(pieces)
             print(line, file=out_file)
