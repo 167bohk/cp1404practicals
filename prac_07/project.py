@@ -23,5 +23,5 @@ class Project:
 
     def is_recent(self, threshold=datetime.datetime.today().date()):
         """Determine whether a project is recent, depending on the threshold given by user."""
-        return self.start_date > threshold
+        return self.start_date >= threshold
 
