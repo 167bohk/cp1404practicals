@@ -35,9 +35,8 @@ def main():
         elif choice == "A":
             pass
         elif choice == "U":
-            for i,project in enumerate(projects):
-                print(f"{i} {project}")
-            project_choice = get_valid_integer("Project choice: ", 0, len(projects)-1 )
+            update_project(projects)
+
 
         else:
             print("Invalid choice!")
@@ -47,6 +46,26 @@ def main():
     if saving_choice == "YES":
         write_file(FILENAME, projects)
     print("Thank you for using custom-built project management software.")
+
+
+def update_project(projects):
+    """Choose a project, then modify the completion % and/or priority - the user can leave either input blank to retain existing values. """
+    for i, project in enumerate(projects):
+        print(f"{i} {project}")
+    project_choice = get_valid_integer("Project choice: ", 0, len(projects) - 1)
+    selected_project = projects[project_choice]
+    print(selected_project)
+    new_percentage = get_valid_integer("New Percentage: ", 0, 100, can_be_empty=True)
+    if new_percentage == "":
+        pass
+    else:
+        selected_project.completion_percentage = new_percentage
+    new_priority = get_valid_integer("New Priority: ", 0, 9999999999,
+                                     can_be_empty=True)  # upper limit can be any number big enough.
+    if new_priority == "":
+        pass
+    else:
+        selected_project.priority = new_priority
 
 
 def filter_projects(projects):
@@ -144,12 +163,16 @@ def get_valid_date_object(prompt):
             print("Invalid date!")
     return date
 
-def get_valid_integer(input_prompt, lower_limit, upper_limit):
+def get_valid_integer(input_prompt, lower_limit, upper_limit, can_be_empty = False):
     """Get a valid integer."""
     is_valid_number = False
     while not is_valid_number:
+        user_input = input(input_prompt).strip()
+        if can_be_empty:
+            if user_input == "":
+                return user_input
         try:
-            integer = int(input(input_prompt).strip())
+            integer = int(user_input)
             if integer >= lower_limit and integer <= upper_limit:
                 is_valid_number = True
             else:
