@@ -18,7 +18,7 @@ MENU = """- (L)oad projects
 
 
 def main():
-    """"""
+    """Display menu, welcome/farewell message, call functions depending on user input choices."""
     print("Welcome to Pythonic Project Management")
     projects = read_file(FILENAME)
     print(MENU)
@@ -193,6 +193,7 @@ def get_valid_integer(input_prompt, lower_limit, upper_limit, can_be_empty=False
             print("Invalid input; enter a valid number")
     return integer
 
+
 def get_valid_float(input_prompt, lower_limit, upper_limit, can_be_empty=False):
     """Get a valid float."""
     is_valid_number = False
@@ -210,4 +211,6 @@ def get_valid_float(input_prompt, lower_limit, upper_limit, can_be_empty=False):
         except ValueError:
             print("Invalid input; enter a valid number")
     return input_float
+
+
 main()
