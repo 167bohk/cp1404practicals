@@ -18,7 +18,16 @@ def main():
             taxi_choice = get_valid_integer("Choose taxi: ", "Invalid taxi choice", len(taxis)-1, 0)
             current_taxi = taxis[taxi_choice]
         elif choice == "d":
-
+            if current_taxi == None:
+                print("You need to choose a taxi before you can drive")
+            else:
+                distance = get_valid_integer("Drive how far?", "Invalid distance", 9999999999, 0)
+                current_taxi.start_fare()
+                current_taxi.drive(distance)
+                current_taxi_cost = current_taxi.get_fare()
+                current_bill = current_taxi_cost
+                total_bill += current_bill
+                print(f"Your {current_taxi.name} trip cost you ${current_taxi_cost}")
         else:
             print("Invalid option")
         print(f"Bill to date: ${current_bill}")
