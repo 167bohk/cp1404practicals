@@ -5,6 +5,9 @@ MENU = "q)uit, c)hoose taxi, d)rive"
 def main():
     """"""
     taxis = [Taxi("Prius", 100), SilverServiceTaxi(2, name="Limo", fuel=100), SilverServiceTaxi(4, name="Hummer", fuel=200)]
+    current_taxi = None
+    current_bill = 0.00
+    total_bill = 0.00
     print("Let's drive!")
     print(MENU)
     choice = input(">>> ").lower()
@@ -12,15 +15,17 @@ def main():
         if choice == "c":
             for i,taxi in enumerate(taxis):
                 print(f"{i} - {taxi}")
-            taxi_choice = get_valid_integer("Choose taxi: ", "Invalid taxi choice", len(taxis), 0)
-
-
+            taxi_choice = get_valid_integer("Choose taxi: ", "Invalid taxi choice", len(taxis)-1, 0)
+            current_taxi = taxis[taxi_choice]
         elif choice == "d":
-            pass
+
         else:
             print("Invalid option")
+        print(f"Bill to date: ${current_bill}")
         print(MENU)
         choice = input(">>> ").lower()
+
+
 
 
 def get_valid_integer(prompt,error_prompt, up, low):
