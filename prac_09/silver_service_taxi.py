@@ -2,7 +2,7 @@ from prac_09.taxi import Taxi
 
 class SilverServiceTaxi(Taxi):
     """Specialised version of a Taxi that have flagfalls and the charging rate depends on the fanciness."""
-    flagfall = 4.5
+    flagfall = 4.50
     def __init__(self, fanciness:float, **kwargs):
         """Initialize a SilverServiceTaxi object."""
         super().__init__(**kwargs)
