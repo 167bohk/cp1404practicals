@@ -12,7 +12,8 @@ def main():
         if choice == "c":
             for i,taxi in enumerate(taxis):
                 print(f"{i} - {taxi}")
-            taxi_choice = input("Choose taxi: ")
+            taxi_choice = get_valid_integer("Choose taxi: ", "Invalid taxi choice", len(taxis), 0)
+
 
         elif choice == "d":
             pass
@@ -22,7 +23,18 @@ def main():
         choice = input(">>> ").lower()
 
 
-def get_valid_integer(prompt, up, low):
-    valid_integer = input(prompt)
+def get_valid_integer(prompt,error_prompt, up, low):
+    """Get a valid integer."""
+    is_valid_number = False
+    while not is_valid_number:
+        try:
+            valid_integer = int(input(prompt))
+            if valid_integer> up or valid_integer<low:
+                print(error_prompt)
+            else:
+                is_valid_number = True
+        except ValueError:
+            print(error_prompt)
+    return valid_integer
 
 main()
